@@ -18,7 +18,8 @@
     "release:beta": "npm run release:alpha -- --preid beta",
     "release:graduate": "npm run release -- --conventional-graduate",
     "preversion": "npm run lint && npm run build && npm run test",
-    "postpublish": "npm i --package-lock-only && npm run clean"
+    "postpublish": "npm i --package-lock-only && npm run clean",
+    "prepare": "husky install"
   },
   "workspaces": [
     "packages/*"
@@ -55,10 +56,12 @@
     "eslint-plugin-prettier": "4.0.0",
     "eslint-plugin-react": "7.27.1",
     "fs-extra": "10.0.0",
+    "husky": "7.0.4",
     "jest": "27.4.4",
     "jest-axe": "5.0.1",
     "jest-matcher-utils": "27.4.2",
     "lerna": "4.0.0",
+    "lint-staged": "12.1.2",
     "lodash": "4.17.21",
     "marked": "4.0.4",
     "open-cli": "7.0.1",
@@ -81,5 +84,8 @@
     "unified": "10.1.1",
     "unist-util-visit": "4.1.0",
     "webpack": "5.64.2"
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx}": "eslint --cache --fix"
   }
 }
